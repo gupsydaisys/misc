@@ -1,0 +1,61 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,textcomp,amssymb,geometry,graphicx,enumerate}
+\usepackage{algorithmicx}
+\usepackage[ruled]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algpascal}
+\usepackage{algc}
+\usepackage{tkz-graph}
+\usepackage{verbatim}
+
+\def\Name{Serena Gupta}  % Your name
+\def\SID{22830625}  % Your student ID number
+\def\Homework{3}%Number of Homework
+\def\Session{Fall 2015}
+
+\title{MATH 191 --- Fall 2015 --- Homework \Homework\ Solutions}
+\author{\Name, \SID}
+\markboth{MATH 191 --\Session\  Homework \Homework\ \Name}{\Name,\ \SID\ -------- Math 191 Problem Set \Homework}
+\pagestyle{myheadings}
+
+\newenvironment{qparts}{\begin{enumerate}[{(}a{)}]}{\end{enumerate}}
+\def\endproof{\text{  } \square}
+\newcommand{\p}[1]{\left(#1\right)}
+\renewcommand{\b}[1]{\left[#1\right]}
+\newcommand{\floor}[1]{\left\lfloor#1\right\rfloor}
+\newcommand{\ceil}[1]{\left\lceil#1\right\rceil}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\newcommand{\mbp}{\mathbb{P}}
+\renewcommand{\P}[1]{\mathbb{P}\p{#1}}
+\renewcommand{\Pr}{\text{Pr}}
+\newcommand{\E}[1]{\mathbb{E}\b{#1}}
+\newcommand{\Var}[1]{\mathrm{Var}\p{#1}}
+\newcommand{\Cov}[1]{\mathrm{Cov}\p{#1}}
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcommand{\F}{\mathcal{F}}
+
+\textheight=9in
+\textwidth=6in
+\topmargin=-.75in
+\oddsidemargin=0.25in
+\evensidemargin=0.25in
+
+\begin{document}
+
+$\\$ You have 2$n$ cities on a line, half are black and half are white.  Create a one-to-one pairing such that the total distance of road created is minimized.
+
+$\\$ $\textbf{Algorithm}$: From left to right, iterate through each city and if it isn't paired, pair it with the closest city of the opposite color that is also unpaired.
+
+$\\$ I will now show that our algorithm provides a solution no worse than the optimal solution.  Let the solution be a sorted list of tuples such that each tuple is a pairing of black and white cities such that first element in the tuple has the lower index and such that the list is sorted in ascending order of the first element in the tuple (which in our case is the least element in the tuple).
+
+$\\$ $\textbf{Lemma 1}$: The closest city will always be to the right of the chose one in our algorithm.
+$\\$ $\textbf{Proof}$: Suppose not.  Then then the city chosen to pair would have been chosen earlier since we are iterating left to right.
+
+$\\$ Let $i$ be the index where you find the optimal solution differs from the greedy solution (my solution) the first time.
+
+$\\$ If $i=0$, since the greedy solution pairs it with the closest city, it can be in a pairing no worse than the optimal solution.
+
+$\\$ Elsewise, first note that both elements at index $i$ must be larger than the first element in the tuple at $i-1$ in both the greedy solution (otherwise we would have picked either of them before).  And since both solutiona are the same up till this point that means this is also true of the optimal solution.  But we know by construction the greedy algorithm picks the next closest city to the right of the current one so the greedy solution can be no worse than the optimal. $\endproof$
+
+\end{document}
