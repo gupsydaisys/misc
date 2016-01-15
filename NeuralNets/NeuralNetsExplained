@@ -1,0 +1,58 @@
+Neural Nets
+
+The Most Challenging Project
+-> ML project neural nets
+
+General?
+    So a neural network works to classify something.  
+
+    For example, you want to classify an image of a digit as 0-9.
+
+    It's supervised learning algorithm meaning that it requires training points.
+
+    So before you feed in images whose digit value you don't know, you
+    have to give it a bunch of images whose digit value is known.
+
+So how does it work?
+
+    So a neural network accepts a number of inputs (which collectively make up 
+    the thing you wish to classify).
+
+    It has many different layers and at each layer, there exists a bunch of nodes.
+
+    Each node takes as input some linear combination of the last layer's nodes outputs
+    and puts them through some function and outputs the results.
+
+    The point of each node in the layer is to acertain something given those small inputs
+    like for example if you were trying to figure out if something was a cat, you might
+    have a node that is idetifying if a bunch of pixels are indicitive of an ear (you don't
+    directly program the node to do that but that is what it might end up doing).
+
+    Now you can have multiple layers.  And the way you choose the function,
+
+Training?
+    - Train your neural network to have the correct weights using 
+    - You are going to optimize the weights in the network to minimize some objective function
+
+
+Why can't weights be 0?  leads to being stuck in a bad local optimum?
+Why should they be random? Converges faster?
+
+How do you choose the function?
+    sin postive input -> 1 and negative input -> -1 ...but not differentiable
+    hyperbolic tan positive -> pos, neg -> neg, diff
+    way of thresholding something
+How does training work?
+
+Backpropogation?
+    - to minimize some objective cost function with respective to each weight
+    - gradient descent + the chain rule
+    - faster than regular gradient descent o(# of nodes) vs o(# of nodes^2)
+
+Cost functions?
+    
+
+Positives and Negtatives
+    + can complex, non-linear classifier
+    + don't need to know relationship between inputs
+    - can be slower to train

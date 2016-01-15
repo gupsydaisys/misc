@@ -1,0 +1,22 @@
+#####################################################################################
+# each player had an infinite string of iid Bernoulli random variables, they each guess an index in 
+# the other person's string, and if the corresponding values in the strings are equal than they win.
+# Can they do better than 1/2 chance of winning
+#####################################################################################
+
+Pick the first time 1 appears in their respective arrays.
+
+you win iff
+(A) 1 appears for the first time in the spot in both arrays
+1, 01, 001, 0001, ...
+
+(1/2)(1/2) + (1/2^2)(1/2^2) + 1/2^3)(1/2^3) + ... =
+= 1/2^2 + 1/2^4 + 1/2^6 + 1/2^8 + ...
+= (1/2^2) / (1 - 1/4) 
+= 1/3
+
+(B) out of the cases left, arbitraily say that P1 has a 1 appear earlier than P2, then they only win if P2 has it's first 1 where P1 has a 0 which is 1/2 of all cases.  So (2/3)*(1/2) = 1/3
+P1: 0 0 0 0 1 0 0 0 0 0 0 
+P2: 0 0 0 0 0 0 0 0 0 0 1
+
+so 2/3 [endproof]
